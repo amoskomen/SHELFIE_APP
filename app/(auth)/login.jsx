@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { Link } from "expo-router";
 import { Colors } from "../../constants/Colors";
+import { useUser } from "../../hooks/userUser";
 
 // themed components
 import ThemedView from "../../components/ThemedView";
@@ -21,7 +22,10 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { user } = useUser();
+
   const handleSubmit = () => {
+    console.log("current user:", user);
     console.log("login form submitted", email, password);
   };
   return (
